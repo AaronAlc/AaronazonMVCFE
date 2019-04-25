@@ -1,0 +1,14 @@
+@charset "ISO-8859-1";
+
+table {
+	margin-top: 10px;
+	border: solid black 1px;
+}
+
+table tr td {
+	padding-bottom: 30px;
+}
+
+form table tr td{
+	border: solid black 2px;
+}
