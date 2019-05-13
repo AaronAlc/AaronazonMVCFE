@@ -2,3 +2,5 @@ AaronazonMVCFE/.settings
 AaronazonMVCFE/.classpath
 AaronazonMVCFE/.project
 AaronazonMVCFE/target/
+../*
+./*

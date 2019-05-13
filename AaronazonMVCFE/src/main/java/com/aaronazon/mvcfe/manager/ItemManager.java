@@ -2,21 +2,21 @@ package com.aaronazon.mvcfe.manager;
 
 import java.util.List;
 
-import com.aaronazon.mvcfe.dto.ItemDTO;
+import com.aaronazon.mvcfe.view.ItemView;
 
 public interface ItemManager {
-	ItemDTO findById(long id);
+	ItemView findById(long id);
 
-	ItemDTO findByName(String name);
+	ItemView findByName(String name);
 
-	ItemDTO saveItem(ItemDTO item);
+	ItemView saveItem(ItemView item);
 
-	ItemDTO updateItem(ItemDTO item);
+	ItemView updateItem(ItemView item);
 
 	boolean deleteItemById(long id);
 
-	List<ItemDTO> findAllItems();
+	List<ItemView> findAllItems();
 
-	boolean isItemExists(ItemDTO item);
+	boolean isItemExists(ItemView item);
 
 }

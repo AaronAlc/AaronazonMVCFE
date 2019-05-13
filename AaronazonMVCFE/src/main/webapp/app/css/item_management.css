@@ -12,3 +12,9 @@ table tr td {
 form table tr td{
 	border: solid black 2px;
 }
+
+#error_message{
+	font-size: 2em;
+	text-align: center;
+	color: red;
+}

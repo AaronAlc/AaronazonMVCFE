@@ -1,6 +1,6 @@
-package com.aaronazon.mvcfe.dto;
+package com.aaronazon.mvcfe.view;
 
-public class ItemDTO{
+public class ItemView{
 
 	private long id;
 	
@@ -10,7 +10,7 @@ public class ItemDTO{
 	
 	private String imageLoc;
 
-	public ItemDTO() {}
+	public ItemView() {}
 
 	public String getItemName() {
 		return itemName;

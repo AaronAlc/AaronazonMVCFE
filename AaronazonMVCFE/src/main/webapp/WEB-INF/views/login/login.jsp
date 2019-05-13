@@ -1,16 +1,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@page isELIgnored="false" %>
 
+<link
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	rel="stylesheet">
 <html>
 	<body>
 		<t:headerfooter>
 
-		<h2>Username: aaron</h2>
-		<h2>Password: test</h2>
-
-			<form:form id="loginForm" modelAttribute="login" action="loginProcess" method="post">
+			<form:form id="loginForm" modelAttribute="userView" action="validateLogin" method="post">
 			<table>
 				<tr>
 					<td>
@@ -34,6 +33,9 @@
 			</table>
 
 			</form:form>
+			<p>
+				<a href="/AaronazonMVCFE/register">Not a Member? Register here.</a>
+			</p>
 			<h2>${message}</h2>
 
 		</t:headerfooter>

@@ -15,6 +15,8 @@ angular.module('itemManagementApp').controller('ItemController', ['$scope', 'Ite
 	self.remove = remove;
 	self.reset = reset;
 	
+	self.error_message = '';
+	
 	fetchAllItems();
 	
 	//gets all the items
@@ -36,6 +38,7 @@ angular.module('itemManagementApp').controller('ItemController', ['$scope', 'Ite
 			.then(
 			fetchAllItems,
 			function(errResponse){
+				self.error_message = 'Item already exists';
 				console.error('Error while Creating Item');
 			}
 		);
@@ -65,6 +68,7 @@ angular.module('itemManagementApp').controller('ItemController', ['$scope', 'Ite
 	
 	//allows you to add or update an item
 	function submit(){
+		self.error_message = '';
 		if(self.item.id==null){
 			createItem(self.item);
 		}else {
@@ -75,6 +79,7 @@ angular.module('itemManagementApp').controller('ItemController', ['$scope', 'Ite
 	
 	//allows you to edit an item
 	function edit(id){
+		self.error_message = '';
 		for(var i = 0; i < self.items.length; i++){
 			if(self.items[i].id == id){
 				self.item = angular.copy(self.items[i]);
@@ -85,6 +90,7 @@ angular.module('itemManagementApp').controller('ItemController', ['$scope', 'Ite
 	
 	//removes from list
 	function remove(id){
+		self.error_message = '';
 		if(self.item.id == id){
 			reset();
 		}
@@ -95,5 +101,5 @@ angular.module('itemManagementApp').controller('ItemController', ['$scope', 'Ite
 		self.item={id:null, itemName:'', description:'', itemType: {itemTypeName:''}};
 		$scope.myForm.$setPristine(); //makes form blank
 	}
-
+	
 }]);

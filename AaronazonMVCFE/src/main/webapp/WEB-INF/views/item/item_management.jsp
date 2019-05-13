@@ -8,7 +8,7 @@
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	rel="stylesheet">
-	<link href="/AaronazonFE/app/css/item_management.css" rel="stylesheet">
+	<link href="/AaronazonMVCFE/app/css/item_management.css" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
 <script type="text/javascript"
@@ -19,7 +19,7 @@
 	src="/AaronazonMVCFE/app/js/item/itemManagement.controller.js"></script>
 <head>
 <meta charset="ISO-8859-1">
-<title>Item</title>
+<title>Item Management Control</title>
 </head>
 <body>
 	<t:headerfooter>
@@ -28,6 +28,7 @@
 			<h1>
 				<span>Item Administration Form</span>
 			</h1>
+			<p ng-if="ctrl.error_message.length > 0" id="error_message" name="error_message" ng-bind="ctrl.error_message"></p>
 			<form name="myForm">
 				<table class="table table-bordered">
 					<tr>
@@ -53,8 +54,8 @@
 					<tr>
 						<td></td>
 						<td>
-							<input type="submit" ng-click="ctrl.submit()"
-								value="{{!ctrl.item.id ? 'Add' : 'Update'}}" class="btn-submit"
+							<input id="submit_btn" type="submit" ng-click="ctrl.submit()"
+								value="{{!ctrl.item.id ? 'Create' : 'Update'}}" class="btn-submit"
 								ng-disabled="myForm.$invalid">
 							<button type="button" ng-click="ctrl.reset()" class="btn-warning"
 								ng-disabled="myForm.$pristine">Reset Form</button>
@@ -70,19 +71,18 @@
 							<th scope="col">ID</th>
 							<th scope="col">Name</th>
 							<th scope="col">Description</th>
-							<th scole="col" width="20%"></th>
-							<th scole="col" width="20%"></th>
+							<th scope="col" width="20%"></th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr ng-repeat="itm in ctrl.items">
-							<td><span ng-bind="itm.id"></span></td>
-							<td><span ng-bind="itm.itemName"></span></td>
-							<td><span ng-bind="itm.description"></span></td>
+							<td ng-bind="itm.id"></td>
+							<td id="table_{{itm.itemName.replace(' ', '_')}}" ng-bind="itm.itemName"></td>
+							<td ng-bind="itm.description"></td>
 							<td>
-								<button type="button" ng-click="ctrl.edit(itm.id)"
+								<button id="{{itm.itemName.replace(' ', '_')}}_edit_btn" type="button" ng-click="ctrl.edit(itm.id)"
 									class="btn btn-outline-primary">Edit</button>
-								<button type="button" ng-click="ctrl.remove(itm.id)"
+								<button id="{{itm.itemName.replace(' ', '_')}}_remove_btn" type="button" ng-click="ctrl.remove(itm.id)"
 									class="btn btn-outline-secondary">Remove</button>
 							</td>
 						</tr>
