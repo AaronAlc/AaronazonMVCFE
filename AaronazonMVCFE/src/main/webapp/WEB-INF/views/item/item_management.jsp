@@ -37,8 +37,7 @@
 						<td><input type="text" ng-model="ctrl.item.itemName"
 							id="itemName" name="itemName" placeholder="Enter Item Name"
 							required ng-minlength="3" />
-							<div
-								class="{ 'has-error' : 'myForm.itemName.$dirty && myForm.itemName.$invalid && !myForm.itemName.$pristine'}">
+							<div>
 								<span ng-show="myForm.itemName.$error.required">This is
 									required Field </span> <span
 									ng-show="myForm.itemName.$error.minlength">Item name has

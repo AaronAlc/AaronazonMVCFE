@@ -11,6 +11,11 @@ public class ItemView{
 	private String imageLoc;
 
 	public ItemView() {}
+	
+	public ItemView(Item item) {
+		this.id = item.getId();
+		this.itemName = item.getItemName();
+	}
 
 	public String getItemName() {
 		return itemName;
